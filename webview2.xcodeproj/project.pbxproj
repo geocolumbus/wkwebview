@@ -13,6 +13,7 @@
 		5F7DC4AC1C405106008C2CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F7DC4AB1C405106008C2CFA /* Assets.xcassets */; };
 		5F7DC4AF1C405106008C2CFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F7DC4AD1C405106008C2CFA /* LaunchScreen.storyboard */; };
 		5F7DC4BA1C405107008C2CFA /* webview2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7DC4B91C405107008C2CFA /* webview2Tests.swift */; };
+		5FF869C61C49689D00214A05 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF869C51C49689D00214A05 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		5F7DC4B51C405107008C2CFA /* webview2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = webview2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F7DC4B91C405107008C2CFA /* webview2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webview2Tests.swift; sourceTree = "<group>"; };
 		5F7DC4BB1C405107008C2CFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FF869C51C49689D00214A05 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				5F7DC4AB1C405106008C2CFA /* Assets.xcassets */,
 				5F7DC4AD1C405106008C2CFA /* LaunchScreen.storyboard */,
 				5F7DC4B01C405106008C2CFA /* Info.plist */,
+				5FF869C51C49689D00214A05 /* WebView.swift */,
 			);
 			path = webview2;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF869C61C49689D00214A05 /* WebView.swift in Sources */,
 				5F7DC4A71C405106008C2CFA /* ViewController.swift in Sources */,
 				5F7DC4A51C405106008C2CFA /* AppDelegate.swift in Sources */,
 			);
@@ -388,6 +392,7 @@
 				5F7DC4C01C405107008C2CFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F7DC4C11C405107008C2CFA /* Build configuration list for PBXNativeTarget "webview2Tests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +401,7 @@
 				5F7DC4C31C405107008C2CFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
