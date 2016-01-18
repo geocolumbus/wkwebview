@@ -24,7 +24,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(webView)
         webView.setPosition(view)
-        webView.setAppHome()
     }
 
     override func didReceiveMemoryWarning() {

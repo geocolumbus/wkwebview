@@ -11,8 +11,6 @@ import WebKit
 
 class WebView : WKWebView {
     
-    var pageCounter=0
-    
     /**
      Initialize the WKWebView.
      */
@@ -21,6 +19,7 @@ class WebView : WKWebView {
         super.init(frame:CGRectZero,configuration:webConfig)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.allowsBackForwardNavigationGestures = true
+        createHomePage()
     }
     
     /**
@@ -42,22 +41,50 @@ class WebView : WKWebView {
             let url = NSURL(string:url)
             let request = NSURLRequest(URL:url!)
             self.loadRequest(request)
-            pageCounter++
         }
     }
     
     /**
-     Generate the home page.
+     Create the home page.
+     */
+    func createHomePage() {
+        self.setUrl("about:blank")
+        drawHomePage()
+    }
+    
+    /**
+     Draw the home page.
+     */
+    func drawHomePage() {
+        let javaSCriptString="document.body.style.background=\"#ffc\""
+        //self.loadHTMLString("<h1>Top20</h1>", baseURL: nil)
+        self.evaluateJavaScript(javaSCriptString, completionHandler: nil)
+    }
+    
+    /**
+     Go to the home page.
      */
     func setAppHome() {
-        // TODO - probably isn't going all the way back.
-        while pageCounter-- > 0 {
-            self.goBack()
+        print("The first item is \(self.findFirstItem()?.URL)")
+        let item = findFirstItem()
+        if item != nil {
+            self.goToBackForwardListItem(item!)
+            drawHomePage()
         }
-        let javaSCriptString="document.body.style.background=\"#ffc\""
-        self.loadHTMLString("<h1>Top20</h1>", baseURL: nil)
-        self.evaluateJavaScript(javaSCriptString, completionHandler: nil)
-        
+    }
+    
+    /**
+     Find the first item in the list of websites.
+     */
+    func findFirstItem() -> WKBackForwardListItem? {
+        var index=0
+        if (self.backForwardList.itemAtIndex(0)==nil) {
+            return nil
+        }
+        while self.backForwardList.itemAtIndex(index) != nil {
+            index--
+        }
+        return self.backForwardList.itemAtIndex(index+1)
     }
     
     /**
@@ -66,7 +93,8 @@ class WebView : WKWebView {
     func forward() {
         if self.canGoForward {
             self.goForward()
-            pageCounter++
+        } else {
+            print("Cannot go forward.")
         }
     }
     
@@ -76,7 +104,8 @@ class WebView : WKWebView {
     func back(){
         if self.canGoBack {
             self.goBack()
-            pageCounter--
+        } else {
+            print("Cannot go backwards.")
         }
     }
     
